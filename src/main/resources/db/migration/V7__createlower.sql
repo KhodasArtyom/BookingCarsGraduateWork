@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX ON manager (lower(email));
