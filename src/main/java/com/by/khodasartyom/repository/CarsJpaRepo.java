@@ -24,6 +24,7 @@ public class CarsJpaRepo extends BaseJPARepository<Cars, Long> implements CarsRe
         return entityManager.createQuery("""
                         SELECT cars.brand FROM  Cars cars
                         WHERE cars.brand = :brand
+                        ORDER BY cars.brand ASC
                         """, Cars.class)
                 .setParameter("brand", brand)
                 .getResultList();
