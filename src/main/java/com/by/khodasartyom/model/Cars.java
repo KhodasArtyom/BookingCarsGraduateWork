@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "cars")
 @Getter
@@ -24,5 +26,11 @@ public class Cars extends BaseEntity{
 
     @Column(name = "year_of_issue",nullable = false)
     private int year_of_issue;
+
+    @Column(name = "price",nullable = false)
+    private BigDecimal price;
+
+    @Column(name = "availability",nullable = false)
+    private boolean availability;
 
 }
