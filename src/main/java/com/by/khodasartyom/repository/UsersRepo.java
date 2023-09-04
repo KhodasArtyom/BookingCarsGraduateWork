@@ -1,6 +1,6 @@
 package com.by.khodasartyom.repository;
 
-import com.by.khodasartyom.model.Users;
+import com.by.khodasartyom.entity.users.Users;
 
 
 import java.util.List;

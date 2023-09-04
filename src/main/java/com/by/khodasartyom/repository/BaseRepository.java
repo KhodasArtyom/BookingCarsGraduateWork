@@ -1,6 +1,6 @@
 package com.by.khodasartyom.repository;
 
-import com.by.khodasartyom.model.Cars;
+import com.by.khodasartyom.entity.cars.Cars;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

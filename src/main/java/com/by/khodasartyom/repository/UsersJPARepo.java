@@ -1,6 +1,6 @@
 package com.by.khodasartyom.repository;
 
-import com.by.khodasartyom.model.Users;
+import com.by.khodasartyom.entity.users.Users;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,20 +12,6 @@ public class UsersJPARepo extends BaseJPARepository<Users, Long> implements User
         super(Users.class);
     }
 
-    @Override
-    public Optional<Users> findById(Long id) {
-        return super.findById(id);
-    }
-
-    @Override
-    public void create(Users entity) {
-        super.create(entity);
-    }
-
-    @Override
-    public void remove(Users entity) {
-        super.remove(entity);
-    }
 
     @Override
     public List<Users> findByEmail(String email) {
