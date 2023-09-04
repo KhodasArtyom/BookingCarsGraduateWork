@@ -1,5 +1,6 @@
-package com.by.khodasartyom.model;
+package com.by.khodasartyom.entity.cars;
 
+import com.by.khodasartyom.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Cars extends BaseEntity{
+public class Cars extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

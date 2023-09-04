@@ -1,6 +1,7 @@
-package com.by.khodasartyom.model;
+package com.by.khodasartyom.entity.users;
 
 
+import com.by.khodasartyom.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
