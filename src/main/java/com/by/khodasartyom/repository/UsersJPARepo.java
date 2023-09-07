@@ -13,6 +13,8 @@ public class UsersJPARepo extends BaseJPARepository<Users, Long> implements User
     }
 
 
+
+
     @Override
     public List<Users> findByEmail(String email) {
         return entityManager.createQuery("""
@@ -32,5 +34,20 @@ public class UsersJPARepo extends BaseJPARepository<Users, Long> implements User
                         """,Users.class)
                 .setParameter("name",name)
                 .getResultList();
+    }
+
+    @Override
+    public Optional<Users> findById(Long id) {
+        return super.findById(id);
+    }
+
+    @Override
+    public void create(Users entity) {
+        super.create(entity);
+    }
+
+    @Override
+    public void remove(Users entity) {
+        super.remove(entity);
     }
 }

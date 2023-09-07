@@ -5,6 +5,7 @@ CREATE TABLE cars
     model         VARCHAR(20) NOT NULL,
     year_of_issue INTEGER
 
+
 );
 
 CREATE TABLE users

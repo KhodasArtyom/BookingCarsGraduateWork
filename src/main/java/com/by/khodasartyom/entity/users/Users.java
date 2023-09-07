@@ -3,6 +3,7 @@ package com.by.khodasartyom.entity.users;
 
 import com.by.khodasartyom.entity.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Users extends BaseEntity {
 
     @Id

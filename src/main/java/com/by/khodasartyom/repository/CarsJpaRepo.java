@@ -1,22 +1,36 @@
 package com.by.khodasartyom.repository;
 
 import com.by.khodasartyom.entity.cars.Cars;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-public class CarsJpaRepo extends BaseJPARepository<Cars, Long> implements CarsRepository {
+@Repository
+public class CarsJpaRepo extends BaseJPARepository<Cars,Long>  implements CarsRepo {
+
+
 
 
     public CarsJpaRepo() {
         super(Cars.class);
     }
 
+
     @Override
     public Optional<Cars> findById(Long id) {
         Cars car = entityManager.find(Cars.class, id);
-
         return Optional.ofNullable(car);
+    }
+
+    @Override
+    public void create(Cars entity) {
+        super.create(entity);
+    }
+
+    @Override
+    public void remove(Cars entity) {
+        super.remove(entity);
     }
 
     @Override
@@ -59,6 +73,8 @@ public class CarsJpaRepo extends BaseJPARepository<Cars, Long> implements CarsRe
                         """, Cars.class)
                 .getResultList();
     }
+
+
 
 
 }
