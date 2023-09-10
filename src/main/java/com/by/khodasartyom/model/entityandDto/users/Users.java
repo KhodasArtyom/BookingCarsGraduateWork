@@ -1,19 +1,17 @@
-package com.by.khodasartyom.entity.users;
+package com.by.khodasartyom.model.entityandDto.users;
 
 
-import com.by.khodasartyom.entity.BaseEntity;
+import com.by.khodasartyom.model.entityandDto.BaseEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 @Entity
 @Table(name = "users")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Accessors(chain = true)
 public class Users extends BaseEntity {
 
     @Id

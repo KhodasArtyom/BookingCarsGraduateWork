@@ -1,8 +1,7 @@
-package com.by.khodasartyom.entity.cars;
+package com.by.khodasartyom.model.entityandDto.cars;
 
-import com.by.khodasartyom.entity.BaseEntity;
+import com.by.khodasartyom.model.entityandDto.BaseEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,8 +12,7 @@ import lombok.Setter;
 @Table(name = "cars")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Cars extends BaseEntity {
 
     @Id
@@ -33,7 +31,6 @@ public class Cars extends BaseEntity {
     @Column(name = "price",nullable = false)
     private Long price;
 
-    @Column(name = "availability",nullable = false)
-    private Boolean availability;
+
 
 }
