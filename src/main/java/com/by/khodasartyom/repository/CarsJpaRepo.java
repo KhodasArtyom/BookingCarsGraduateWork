@@ -1,21 +1,69 @@
 package com.by.khodasartyom.repository;
 
-import com.by.khodasartyom.entity.cars.Cars;
+import com.by.khodasartyom.model.entityandDto.cars.Cars;
+import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class CarsJpaRepo extends BaseJPARepository<Cars,Long>  implements CarsRepo {
+public class CarsJpaRepo implements CarsRepo {
 
+    private EntityManager entityManager;
 
-
-
-    public CarsJpaRepo() {
-        super(Cars.class);
+    @Override
+    public List<Cars> findAll() {
+        return entityManager.createQuery("""
+                        SELECT cars FROM Cars cars
+                        """, Cars.class)
+                .getResultList();
     }
 
+    @Override
+    public Iterable<Cars> findAllById(Iterable<Long> longs) {
+        return null;
+    }
+
+    @Override
+    public long count() {
+        return 0;
+    }
+
+    @Override
+    public void deleteById(Long aLong) {
+
+    }
+
+    @Override
+    public void delete(Cars entity) {
+
+    }
+
+    @Override
+    public void deleteAllById(Iterable<? extends Long> longs) {
+
+    }
+
+    @Override
+    public void deleteAll(Iterable<? extends Cars> entities) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
+    }
+
+    @Override
+    public <S extends Cars> S save(S entity) {
+        return null;
+    }
+
+    @Override
+    public <S extends Cars> Iterable<S> saveAll(Iterable<S> entities) {
+        return null;
+    }
 
     @Override
     public Optional<Cars> findById(Long id) {
@@ -24,14 +72,10 @@ public class CarsJpaRepo extends BaseJPARepository<Cars,Long>  implements CarsRe
     }
 
     @Override
-    public void create(Cars entity) {
-        super.create(entity);
+    public boolean existsById(Long aLong) {
+        return false;
     }
 
-    @Override
-    public void remove(Cars entity) {
-        super.remove(entity);
-    }
 
     @Override
     public List<Cars> findByBrand(String brand) {
@@ -65,16 +109,10 @@ public class CarsJpaRepo extends BaseJPARepository<Cars,Long>  implements CarsRe
                 .getResultList();
     }
 
-    @Override
-    public List<Cars> findByAvailabilityTrue() {
-        return entityManager.createQuery("""
-                        SELECT cars FROM Cars cars
-                        WHERE cars.availability = TRUE
-                        """, Cars.class)
-                .getResultList();
-    }
-
-
-
 
 }
+
+
+
+
+

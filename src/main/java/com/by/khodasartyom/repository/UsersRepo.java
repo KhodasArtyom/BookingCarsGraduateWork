@@ -1,12 +1,12 @@
 package com.by.khodasartyom.repository;
 
-import com.by.khodasartyom.entity.users.Users;
+import com.by.khodasartyom.model.entityandDto.users.Users;
+import org.springframework.data.repository.CrudRepository;
 
 
 import java.util.List;
-import java.util.Optional;
 
-public interface UsersRepo extends BaseRepository<Users, Long> {
+public interface UsersRepo extends CrudRepository<Users, Long> {
 
 
     List<Users> findByEmail(String email);

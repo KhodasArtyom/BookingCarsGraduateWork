@@ -1,13 +1,12 @@
 package com.by.khodasartyom.repository;
 
-import com.by.khodasartyom.entity.cars.Cars;
-import org.springframework.stereotype.Repository;
+import com.by.khodasartyom.model.entityandDto.cars.Cars;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 
-public interface CarsRepo extends BaseRepository<Cars,Long> {
+public interface CarsRepo extends CrudRepository<Cars,Long> {
 
 
 
@@ -17,7 +16,7 @@ public interface CarsRepo extends BaseRepository<Cars,Long> {
 
     List<Cars> findByYearOfIssue(int yearOfIssue);
 
-    List<Cars> findByAvailabilityTrue();
+
 
 
 

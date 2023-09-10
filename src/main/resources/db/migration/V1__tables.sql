@@ -16,3 +16,11 @@ CREATE TABLE users
     password varchar(255)
 );
 
+CREATE TABLE admin
+(
+    id_admin BIGSERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE ,
+    password VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE
+);
+

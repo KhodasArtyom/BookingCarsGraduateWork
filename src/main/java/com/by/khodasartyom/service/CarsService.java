@@ -1,12 +1,13 @@
 package com.by.khodasartyom.service;
 
-import com.by.khodasartyom.dto.CarsDto;
-import com.by.khodasartyom.entity.cars.Cars;
-import com.by.khodasartyom.exception.BusinessException;
+import com.by.khodasartyom.model.dto.CarsDto;
+import com.by.khodasartyom.model.entityandDto.cars.Cars;
 
 import java.util.List;
 
 public interface CarsService {
+
+    public List findAllCars();
 
     public void createNewCar(CarsDto cars);
 

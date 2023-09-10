@@ -1,17 +1,16 @@
 package com.by.khodasartyom.service;
 
-import com.by.khodasartyom.dto.CarsDto;
-import com.by.khodasartyom.entity.cars.Cars;
+import com.by.khodasartyom.model.dto.CarsDto;
+import com.by.khodasartyom.model.entityandDto.cars.Cars;
 import com.by.khodasartyom.repository.CarsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 public class CarsServiceImpl implements CarsService{
-    private CarsRepo carsRepo;
+    private final CarsRepo carsRepo;
 
 
     @Autowired
@@ -19,12 +18,16 @@ public class CarsServiceImpl implements CarsService{
         this.carsRepo = carsRepo;
     }
 
-    @Override
-    @Transactional
-    public void createNewCar(CarsDto car) {
 
+    @Override
+    public List findAllCars() {
+        return null;
     }
 
+    @Override
+    public void createNewCar(CarsDto cars) {
+
+    }
 
 
     @Override

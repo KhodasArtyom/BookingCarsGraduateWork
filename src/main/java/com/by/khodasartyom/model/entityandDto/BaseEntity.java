@@ -1,4 +1,4 @@
-package com.by.khodasartyom.entity;
+package com.by.khodasartyom.model.entityandDto;
 
 import jakarta.persistence.*;
 import lombok.Getter;
