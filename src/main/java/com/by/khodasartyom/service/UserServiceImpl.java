@@ -2,63 +2,66 @@ package com.by.khodasartyom.service;
 
 import com.by.khodasartyom.exception.BusinessException;
 import com.by.khodasartyom.model.entityandDto.admin.Admin;
-import com.by.khodasartyom.model.entityandDto.admin.AdminSignInDto;
 import com.by.khodasartyom.model.entityandDto.admin.AdminSignUpDto;
+import com.by.khodasartyom.model.entityandDto.users.UserSignInDto;
+import com.by.khodasartyom.model.entityandDto.users.Users;
+import com.by.khodasartyom.model.entityandDto.users.UsersSignUpDto;
 import com.by.khodasartyom.model.security.AccessToken;
+
 import com.by.khodasartyom.model.security.AdminPrincipal;
-import com.by.khodasartyom.repository.AdminRepository;
+import com.by.khodasartyom.model.security.UserPrincipal;
+import com.by.khodasartyom.repository.UsersRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionOperations;
 
 @Service
 @RequiredArgsConstructor
-public class AdminServiceImpl implements AdminService {
-
-    private final AdminRepository adminRepository;
+public class UserServiceImpl implements UserService {
+    private final UsersRepository usersRepository;
     private final AccessTokenService accessTokenService;
     private final PasswordEncoder passwordEncoder;
     private final TransactionOperations transactionOperations;
 
     @Override
-    public AccessToken signIn(AdminSignInDto dto) {
-        Admin admin = adminRepository.findByEmail(dto.getEmail())
+    public AccessToken signIn(UserSignInDto dto) {
+        Users user = usersRepository.findByEmail(dto.getEmail())
                 .orElseThrow(() -> new BadCredentialsException("There is no such email address. Try again"));
-        if (!passwordEncoder.matches(dto.getPassword(), admin.getPasswordHash())) {
+        if (!passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
             throw new BadCredentialsException("Incorrect password");
         }
-        AdminPrincipal adminPrincipal = AdminPrincipal.from(admin);
+        UserPrincipal userPrincipal = UserPrincipal.from(user);
 
-
-        return accessTokenService.generate(adminPrincipal);
+        return accessTokenService.generate(userPrincipal);
     }
 
     @Override
-    public AccessToken signUp(AdminSignUpDto dto) {
+    public AccessToken signUp(UsersSignUpDto dto) {
         String passwordHash = passwordEncoder.encode(dto.getPassword());
-        Admin admin = this.create(dto,passwordHash);
-        AdminPrincipal adminPrincipal = AdminPrincipal.from(admin);
+        Users users = create(dto, passwordHash);
+        UserPrincipal userPrincipal = UserPrincipal.from(users);
 
-        return accessTokenService.generate(adminPrincipal);
+        return accessTokenService.generate(userPrincipal);
     }
 
-    private Admin create(AdminSignUpDto dto, String passwordHash) {
+    private Users create(UsersSignUpDto dto, String passwordHash) {
 
         return transactionOperations.execute(tx -> {
-            boolean existByEmail = adminRepository.findByEmail(dto.getEmail()).isPresent();
+            boolean existByEmail = usersRepository.findByEmail(dto.getEmail()).isPresent();
             if (existByEmail) {
                 throw new BusinessException("this email already exists");
             }
-            Admin admin = new Admin()
-                    .setName(dto.getName())
+            Users user = new Users()
+                    .setName(dto.getUsername())
                     .setEmail(dto.getEmail())
-                    .setPasswordHash(passwordHash);
-            adminRepository.create(admin);
+                    .setPassword(passwordHash);
+            usersRepository.create(user);
 
-            return admin;
+            return user;
+
         });
     }
+
 }
