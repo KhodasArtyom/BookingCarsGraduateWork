@@ -1,5 +1,6 @@
 package com.by.khodasartyom.config;
 
+import com.by.khodasartyom.model.security.AccessTokenProperties;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.info.Info;
@@ -20,5 +21,6 @@ import org.springframework.context.annotation.Configuration;
         scheme = "bearer"
 )
 public class SwaggerConfig {
+
 }
 
