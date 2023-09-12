@@ -47,6 +47,18 @@ public class CarsJpaRepository extends BaseJpaRepository<Cars, Long> implements 
                 .getResultList();
     }
 
+    @Override
+    public List<Cars> getAllCars(int pageSize, int pageNumber) {
+        return entityManager.createQuery("""
+                        SELECT cars
+                        FROM Cars cars
+                        """, Cars.class)
+                .setMaxResults(pageSize)
+                .setFirstResult(pageSize * pageNumber)
+                .getResultList();
+
+    }
+
 
 }
 

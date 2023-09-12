@@ -17,11 +17,12 @@ public abstract class BaseJpaRepository<E, ID> implements BaseRepository<E, ID> 
     public E getReferenceById(ID id) {
         return entityManager.getReference(eClass, id);
     }
-
     @Override
-    public Optional<E> findByUd(ID id) {
+    public Optional<E> findById(ID id) {
         return Optional.ofNullable(entityManager.find(eClass, id));
     }
+
+
 
     @Override
     public void create(E entity) {

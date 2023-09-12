@@ -6,7 +6,7 @@ public interface BaseRepository<E,ID>{
 
     E getReferenceById(ID id);
 
-    Optional<E> findByUd(ID id);
+    Optional<E> findById(ID id);
 
     void create(E entity);
 

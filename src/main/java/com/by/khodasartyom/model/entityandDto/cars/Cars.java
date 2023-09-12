@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
 
@@ -14,7 +15,7 @@ import java.math.BigDecimal;
 @Table(name = "cars")
 @Getter
 @Setter
-
+@Accessors(chain = true)
 public class Cars extends BaseEntity {
 
     @Id

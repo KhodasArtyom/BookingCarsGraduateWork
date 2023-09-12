@@ -10,6 +10,7 @@ public class CarsUpdateDto {
 
     String brand;
     String model;
+    Integer year_of_issue;
     BigDecimal price;
     boolean bookingStatus;
 }

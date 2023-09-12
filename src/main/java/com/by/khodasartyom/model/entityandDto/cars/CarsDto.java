@@ -6,9 +6,6 @@ import java.math.BigDecimal;
 
 @Value
 public class CarsDto {
-
-
-
     Long id_cars;
 
     String brand;
@@ -17,7 +14,7 @@ public class CarsDto {
 
     Integer year_of_issue;
 
-    Long price;
+    BigDecimal price;
 
     public static CarsDto from(Cars car) {
         return new CarsDto(

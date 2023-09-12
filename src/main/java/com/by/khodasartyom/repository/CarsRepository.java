@@ -13,6 +13,8 @@ public interface CarsRepository extends  BaseRepository<Cars, Long>{
 
     List<Cars> findByYearOfIssue(int yearOfIssue);
 
+    List<Cars> getAllCars(int pageSize,int pageNumber);
+
 
 
 }
