@@ -1,11 +1,13 @@
 package com.by.khodasartyom.model.entityandDto.cars;
 
 import com.by.khodasartyom.model.entityandDto.BaseEntity;
+import com.by.khodasartyom.model.entityandDto.admin.Admin;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 
 
 @Entity
@@ -29,7 +31,14 @@ public class Cars extends BaseEntity {
     private Integer year_of_issue;
 
     @Column(name = "price",nullable = false)
-    private Long price;
+    private BigDecimal price;
+
+    @Column(name = "booking_status",nullable = false)
+    private boolean bookingStatus;
+
+    @ManyToOne(optional = false,fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_admin",nullable = false)
+    private Admin admin;
 
 
 

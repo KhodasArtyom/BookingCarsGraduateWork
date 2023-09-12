@@ -10,6 +10,7 @@ import lombok.Getter;
 
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -38,8 +39,8 @@ public class Booking extends BaseEntity {
     private LocalDateTime end_of_lease;
 
 
-    @Column(name = "status", nullable = false)
-    private String status;
+    @Column(name = "price", nullable = false)
+    private BigDecimal price;
 
 
 }
