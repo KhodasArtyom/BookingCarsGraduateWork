@@ -1,17 +1,14 @@
 package com.by.khodasartyom.repository;
 
-import com.by.khodasartyom.model.Cars;
-import org.springframework.data.repository.CrudRepository;
-
-import java.util.List;
 import java.util.Optional;
 
-public interface BaseRepository<E,Long > {
+public interface BaseRepository<E,ID>{
 
-   Optional<E> findById(Long id);
+    E getReferenceById(ID id);
 
+    Optional<E> findById(ID id);
 
-   void create(E entity);
+    void create(E entity);
 
-   void remove(E entity);
+    void remove(E entity);
 }

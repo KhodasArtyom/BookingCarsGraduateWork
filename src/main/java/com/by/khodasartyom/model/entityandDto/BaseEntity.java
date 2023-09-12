@@ -1,4 +1,4 @@
-package com.by.khodasartyom.model;
+package com.by.khodasartyom.model.entityandDto;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import java.util.Objects;
 @Getter
 @Setter
 @ToString(of = "id")
-public abstract class    BaseEntity {
+public abstract class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false)
