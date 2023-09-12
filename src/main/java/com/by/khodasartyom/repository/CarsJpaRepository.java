@@ -16,13 +16,16 @@ public class CarsJpaRepository extends BaseJpaRepository<Cars, Long> implements 
     }
 
     @Override
-    public List<Cars> findByBrand(String brand) {
+    public List<Cars> findAllCarsByBrand(String brand,int pageSize,int pageNumber) {
         return entityManager.createQuery("""
-                        SELECT cars.brand FROM  Cars cars
-                        WHERE cars.brand = :brand
+                        SELECT cars.brand
+                        FROM  Cars cars
+                        WHERE cars.brand = :brand AND cars.bookingStatus=TRUE
                         ORDER BY cars.brand ASC
                         """, Cars.class)
                 .setParameter("brand", brand)
+                .setMaxResults(pageSize)
+                .setFirstResult(pageSize* pageNumber)
                 .getResultList();
     }
 

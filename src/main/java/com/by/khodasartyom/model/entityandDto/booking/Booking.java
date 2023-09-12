@@ -9,6 +9,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -17,7 +18,7 @@ import java.time.LocalDateTime;
 @Table(name = "booking")
 @Getter
 @Setter
-
+@Accessors(chain = true)
 public class Booking extends BaseEntity {
 
     @Id

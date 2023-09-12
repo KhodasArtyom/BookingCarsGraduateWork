@@ -15,4 +15,6 @@ public interface BookingRepository extends BaseRepository<Booking,Long> {
     List<Booking> findByEndDateBefore(LocalDate endDate);
 
 
+
+
 }
