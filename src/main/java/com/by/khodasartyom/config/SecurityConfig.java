@@ -1,6 +1,7 @@
 package com.by.khodasartyom.config;
 
 import com.by.khodasartyom.model.security.AccessTokenProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.SecurityBuilder;
@@ -13,6 +14,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.JWTVerifier;
 
+@EnableConfigurationProperties
 @Configuration
 public class SecurityConfig {
 
