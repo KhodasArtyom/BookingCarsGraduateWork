@@ -25,7 +25,7 @@ public class BookingDto {
         return new BookingDto(booking.getId(),
                 CarsDto.from(booking.getCar()),
                 UserDto.from(booking.getUser()),
-                        booking.getStart_of_lease(),
+                        booking.getStart_date(),
                         booking.getEnd_date(),
                         booking.getTotalPrice(),
                         booking.getReservationStatus());
