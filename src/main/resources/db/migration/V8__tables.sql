@@ -1,1 +1,0 @@
-CREATE UNIQUE INDEX ON users(lower(email));

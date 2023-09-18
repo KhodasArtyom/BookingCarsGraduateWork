@@ -1,6 +1,5 @@
 package com.by.khodasartyom.model.entityandDto.cars;
 
-
 import lombok.Value;
 
 import java.math.BigDecimal;
@@ -12,5 +11,5 @@ public class CarsUpdateDto {
     String model;
     Integer year_of_issue;
     BigDecimal price;
-    boolean bookingStatus;
+    boolean status;
 }

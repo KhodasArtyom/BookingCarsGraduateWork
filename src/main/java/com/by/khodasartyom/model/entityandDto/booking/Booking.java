@@ -1,47 +1,50 @@
 package com.by.khodasartyom.model.entityandDto.booking;
 
 
-import com.by.khodasartyom.model.entityandDto.BaseEntity;
+import com.by.khodasartyom.model.entity.BaseEntity;
 import com.by.khodasartyom.model.entityandDto.cars.Cars;
-import com.by.khodasartyom.model.entityandDto.users.Users;
+import com.by.khodasartyom.model.entityandDto.users.User;
 import jakarta.persistence.*;
 
 import lombok.Getter;
 
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "booking")
+@Table(name = "car_reservation")
 @Getter
 @Setter
+
 @Accessors(chain = true)
 public class Booking extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_booking;
 
     @ManyToOne
-    @JoinColumn(name = "id_cars", referencedColumnName = "id_cars", nullable = false)
+    @JoinColumn(name = "car_id", referencedColumnName = "id_car", nullable = false)
     private Cars car;
 
     @ManyToOne
-    @JoinColumn(name = "id_users", referencedColumnName = "id_users", nullable = false)
-    private Users user;
+    @JoinColumn(name = "user_id", referencedColumnName = "id_users", nullable = false)
+    private User user;
 
-    @Column(name = "start_of_lease", nullable = false)
-    private LocalDateTime start_of_lease;
+    @Column(name = "start_date", nullable = false)
+    private LocalDate start_date;
 
-    @Column(name = "end_of_lease", nullable = false)
-    private LocalDateTime end_of_lease;
+    @Column(name = "end_date", nullable = false)
+    private LocalDate end_date;
+
+    @Column(name = "totalPrice",nullable = false)
+    private BigDecimal totalPrice;
 
 
-    @Column(name = "price", nullable = false)
-    private BigDecimal price;
+    @Column(name = "reservation_status",nullable = false)
+    private String reservationStatus;
 
 
 }

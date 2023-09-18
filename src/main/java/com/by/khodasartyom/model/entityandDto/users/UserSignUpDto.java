@@ -3,11 +3,8 @@ package com.by.khodasartyom.model.entityandDto.users;
 import lombok.Value;
 
 @Value
-public class UsersSignUpDto {
+public class UserSignUpDto {
 
-    String email;
-
+    String name;
     String password;
-
-    String username;
 }

@@ -2,22 +2,17 @@ package com.by.khodasartyom.model.entityandDto.users;
 
 import lombok.Value;
 
-
 @Value
-public class UserDto
-{
-     String username;
+public class UserDto {
 
-     String email;
+    String username;
+    String password;
+    String email;
 
-     String password;
+    public static UserDto from(User user){
 
-    public static UserDto from(Users user) {
-        return new UserDto(
-                user.getName(),
-                user.getEmail(),
-                user.getPassword());
+        return new UserDto(user.getName(),
+                user.getPasswordHash(),
+                user.getEmail());
     }
-
-
 }

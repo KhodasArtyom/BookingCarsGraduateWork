@@ -1,11 +1,15 @@
 package com.by.khodasartyom.service;
 
-import com.by.khodasartyom.model.security.AccessToken;
-import com.by.khodasartyom.model.security.AccountPrincipal;
+import com.by.khodasartyom.security.AccessToken;
+import com.by.khodasartyom.security.AccountPrincipal;
+import org.springframework.stereotype.Component;
+
 
 public interface AccessTokenService {
 
-    AccessToken generate(AccountPrincipal accountPrincipal);
+    AccessToken generate(AccountPrincipal principal);
 
-    AccountPrincipal authenticate(String accessTokenValue);
+    AccountPrincipal authenticate(String accessToken);
+
+
 }

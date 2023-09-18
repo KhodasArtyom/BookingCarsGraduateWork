@@ -5,9 +5,8 @@ import lombok.Value;
 @Value
 public class UserSignInDto {
 
-
     String email;
-
     String password;
+
 
 }

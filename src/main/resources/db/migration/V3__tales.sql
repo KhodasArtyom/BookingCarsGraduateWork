@@ -1,1 +1,0 @@
-ALTER TABLE cars RENAME COLUMN make TO brand;

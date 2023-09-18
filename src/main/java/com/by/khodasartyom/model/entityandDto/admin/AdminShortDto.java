@@ -5,11 +5,8 @@ import lombok.Value;
 @Value
 public class AdminShortDto {
     long id;
-
     String name;
-
     String email;
-
 
     public static AdminShortDto from(Admin admin) {
         return new AdminShortDto(
@@ -17,4 +14,5 @@ public class AdminShortDto {
                 admin.getName(),
                 admin.getEmail());
     }
+
 }
