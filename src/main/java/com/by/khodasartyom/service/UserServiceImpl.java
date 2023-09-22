@@ -1,17 +1,20 @@
 package com.by.khodasartyom.service;
 
 import com.by.khodasartyom.exception.BusinessException;
-import com.by.khodasartyom.model.entityandDto.users.User;
-import com.by.khodasartyom.model.entityandDto.users.UserSignInDto;
-import com.by.khodasartyom.model.entityandDto.users.UserSignUpDto;
-import com.by.khodasartyom.repository.UserRepository;
-import com.by.khodasartyom.security.AccessToken;
-import com.by.khodasartyom.security.UserPrincipal;
+
+import com.by.khodasartyom.model.security.AccessToken;
+import com.by.khodasartyom.model.security.UserPrincipal;
+import com.by.khodasartyom.model.user.User;
+import com.by.khodasartyom.model.user.UserSignInDto;
+import com.by.khodasartyom.model.user.UserSignUpDto;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionOperations;
 
+@Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;

@@ -1,6 +1,6 @@
 package com.by.khodasartyom.config;
 
-import com.by.khodasartyom.security.AccountPrincipal;
+import com.by.khodasartyom.model.security.AccountPrincipal;
 import com.by.khodasartyom.service.AccessTokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -27,7 +27,7 @@ public class AccessTokenAuthenticationFilter extends OncePerRequestFilter {
     private final AccessTokenService accessTokenService;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest req, @NonNull HttpServletResponse resp, @NonNull FilterChain chain)
+    protected void doFilterInternal(HttpServletRequest req,  HttpServletResponse resp,  FilterChain chain)
             throws ServletException, IOException {
         String authorizationHeader = req.getHeader(HttpHeaders.AUTHORIZATION);
         if (authorizationHeader != null && authorizationHeader.startsWith(TOKEN_PREFIX)) {

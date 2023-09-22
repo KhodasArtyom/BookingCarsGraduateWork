@@ -1,8 +1,7 @@
 package com.by.khodasartyom.service;
 
-import com.by.khodasartyom.security.AccessToken;
-import com.by.khodasartyom.security.AccountPrincipal;
-import org.springframework.stereotype.Component;
+import com.by.khodasartyom.model.security.AccessToken;
+import com.by.khodasartyom.model.security.AccountPrincipal;
 
 
 public interface AccessTokenService {
