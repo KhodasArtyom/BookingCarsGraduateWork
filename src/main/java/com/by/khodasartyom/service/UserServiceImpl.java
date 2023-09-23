@@ -7,6 +7,7 @@ import com.by.khodasartyom.model.security.UserPrincipal;
 import com.by.khodasartyom.model.user.User;
 import com.by.khodasartyom.model.user.UserSignInDto;
 import com.by.khodasartyom.model.user.UserSignUpDto;
+import com.by.khodasartyom.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.security.authentication.BadCredentialsException;

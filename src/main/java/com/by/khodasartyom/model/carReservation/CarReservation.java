@@ -34,7 +34,7 @@ public class CarReservation extends BaseEntity {
     @Column(name = "end_date",columnDefinition = "DATE",nullable = false)
     private LocalDate endDate;
 
-    @Column(name = "created-at",nullable = false)
+    @Column(name = "created_at",nullable = false)
     private Instant createdAt;
 
 

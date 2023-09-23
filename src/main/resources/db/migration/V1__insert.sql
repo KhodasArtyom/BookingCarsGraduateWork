@@ -6,7 +6,7 @@ CREATE TABLE admin
     password_hash VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE user
+CREATE TABLE "user"
 (
     id            BIGSERIAL PRIMARY KEY,
     name          VARCHAR(30) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE user
 
 );
 
-CREATE UNIQUE INDEX ON user (lower(email));
+CREATE UNIQUE INDEX ON "user" (lower(email));
 
 
 
@@ -42,7 +42,8 @@ CREATE TABLE car_reservation
     start_date DATE         NOT NULL,
     end_date   DATE         NOT NULL,
     created_at TIMESTAMP    NOT NULL,
-    user_id    BIGINT       NOT NULL REFERENCES user (id),
-    car_id     BIGINT       NOT NULL REFERENCES car (id)
+    user_id    BIGINT       NOT NULL REFERENCES "user" (id),
+    car_id     BIGINT       NOT NULL REFERENCES car (id),
+    UNIQUE (user_id, car_id)
 
 );
