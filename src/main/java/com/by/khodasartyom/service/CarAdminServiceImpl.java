@@ -57,19 +57,33 @@ public class CarAdminServiceImpl implements CarAdminService {
     @Override
     @Transactional
     public CarDto update(long id, CarUpdateDto dto, AdminPrincipal adminPrincipal) {
-        return null;
+        Car car = carRepository.findById(id)
+                .orElseThrow(() -> new BusinessException("The car is not found"));
+        validateAccess(car, adminPrincipal);
+        car.setBrand(dto.getBrand());
+        car.setModel(dto.getModel());
+        car.setPrice(dto.getPrice());
+        car.setActive_status(dto.isStatusActive());
+        return CarDto.from(car);
     }
 
     @Override
     @Transactional
     public List<CarDto> getPageOfCars(int pageNumber, AdminPrincipal adminPrincipal) {
-        return null;
+        return carRepository.findPageByAdmin(adminPrincipal.getId(), CARS_PAGE_SIZE,pageNumber)
+                .stream()
+                .map(CarDto::from)
+                .toList();
+
     }
 
     @Override
     @Transactional
     public List<CarReservationDto> getCarReservationListWithCarsAndUsers(int pageNumber, AdminPrincipal adminPrincipal) {
-        return null;
+        return carReservationRepository.findPageByAdminWithCarAndUser(adminPrincipal.getId(),CARS_RES_SIZE,pageNumber )
+                .stream()
+                .map(CarReservationDto::from)
+                .toList();
     }
 
     private void validateAccess(Car car, AdminPrincipal adminPrincipal) {
