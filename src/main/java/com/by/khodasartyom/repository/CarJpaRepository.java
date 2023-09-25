@@ -69,8 +69,8 @@ public class CarJpaRepository extends BaseJpaRepository<Car, Long> implements Ca
                         FROM Car car
                         JOIN FETCH car.admin
                         WHERE car.active_status
-                        AND car.brand ILIKE :brand
-                        ORDER BY car.createdAt DESC 
+                        AND UPPER(car.brand) LIKE CONCAT(  '%',UPPER(:brand),'%')
+                        ORDER BY car.createdAt DESC
                         """, Car.class)
                 .setParameter("brand", brand)
                 .setMaxResults(pageSize)

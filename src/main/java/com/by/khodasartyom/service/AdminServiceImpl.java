@@ -37,10 +37,10 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-
     public AccessToken signUp(AdminSignUpDto dto) {
         String passwordHash = passwordEncoder.encode(dto.getPassword());
         Admin admin = this.create(dto, passwordHash);
+
         AdminPrincipal adminPrincipal = AdminPrincipal.from(admin);
         return accessTokenService.generate(adminPrincipal);
     }
@@ -53,9 +53,9 @@ public class AdminServiceImpl implements AdminService {
 
             }
             Admin admin = new Admin()
-                    .setName(dto.getName())
+                    .setEmail(dto.getEmail())
                     .setPasswordHash(passwordHash)
-                    .setEmail(dto.getEmail());
+                    .setName(dto.getName());
             adminRepository.create(admin);
 
             return admin;

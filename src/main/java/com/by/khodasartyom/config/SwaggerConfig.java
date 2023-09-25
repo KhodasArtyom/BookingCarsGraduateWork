@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @OpenAPIDefinition(
-        info = @Info(title = "car-booking"),
+        info = @Info(title = "booking"),
         security = @SecurityRequirement(name = "bearer-auth")
 )
 @SecurityScheme(

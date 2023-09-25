@@ -33,7 +33,7 @@ public class CarUserServiceImpl implements CarUserService{
     @Override
     @Transactional
     public List<CarShortDto> getPageByBrandQuery(String brandQuery, int pageNumber) {
-        String dbBrandQuery = "$"  + brandQuery + "$";
+        String dbBrandQuery = "%"  + brandQuery + "%";
         return carRepository.findPageOfActiveAdminsCarsByBrand(dbBrandQuery,CARS_PAGE_SIZE,pageNumber)
                 .stream()
                 .map(CarShortDto::from)

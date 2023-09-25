@@ -8,7 +8,6 @@ import com.by.khodasartyom.model.user.UserSignInDto;
 import com.by.khodasartyom.model.user.UserSignUpDto;
 import com.by.khodasartyom.service.AdminService;
 import com.by.khodasartyom.service.CarUserService;
-import com.by.khodasartyom.service.CarUserServiceImpl;
 import com.by.khodasartyom.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -26,27 +25,28 @@ public class PublicApiController {
     private final CarUserService carUserService;
     private final AdminService adminService;
 
-    @PostMapping("/user-signUp")
+    @PostMapping("/user-signup")
     public AccessToken signUpUser(@RequestBody UserSignUpDto signUpDto) {
         return userService.signUp(signUpDto);
     }
 
-    @PostMapping("/user-signIn")
+    @PostMapping("/user-signin")
     public AccessToken signInUser(@RequestBody UserSignInDto signInDto) {
         return userService.signIn(signInDto);
     }
 
 
-    @PostMapping("/admin-signUp")
+    @PostMapping("/admins")
     public AccessToken signUpAdmin(@RequestBody AdminSignUpDto signUpDto){
         return adminService.signUp(signUpDto);
     }
 
-    @PostMapping("/admin-signIn")
+    @PostMapping("/admins/access-tokens")
     public AccessToken signInAdmin(AdminSignInDto signInDto){
         return adminService.signIn(signInDto);
     }
 
+    @GetMapping("car-brand")
     public List<CarShortDto> getPageByBrand(@RequestParam String query,@RequestParam int pageNumber){
 
         return carUserService.getPageByBrandQuery(query, pageNumber);
